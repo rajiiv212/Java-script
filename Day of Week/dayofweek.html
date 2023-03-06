@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of Week</title>
+</head>
+<body>
+    <p>Click the button to display day of the Week</p>
+    <button id="btn" onclick="button()">Try It</button>
+    <p id="day"></p>
+
+    <script>
+        function button() {
+        var x = new Date("oct 16 , 2018");
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+        var n = weekday[x.getDay()]
+        document.getElementById("day").innerHTML = n ;
+        } 
+    </script>
+    
+</body>
+</html>

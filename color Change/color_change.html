@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #999;
+            transition:  0.1s;
+        }
+        #color{
+            margin-bottom: 20px;
+            font-size: 24px;
+            padding: 8px 10px;
+            text-align: center;
+            color: #fff;
+            background-color: #000;
+        }
+        button{
+            font-size: 24px;
+            padding: 8px 10px;
+            text-align: center;
+            outline: none;
+            letter-spacing: 2px;
+            background-color: #2a4636;
+            color: #fff;
+            border: 2px solid #01d401;
+            transition: 100ms ease-in-out;
+        }
+        button:hover{
+            outline: none;
+            color: #fff;
+            box-shadow:  0 0 50px 50px #01d401
+                     inset,0 0 10px #01d401;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="color">...</p>
+        <button onclick="getcolor( )">Change</button>
+    </div>
+    <script>
+         let letters = "0123456789ABCDEF";
+         const body = document.querySelector("body");
+         const colorelement = document.querySelector("#color");
+         function getcolor( ) {
+             let color = "#";
+             for (let i = 0 ; i < 6; i++ ) { 
+                 color += letters[Math.floor(Math.random( ) * letters.length)];
+         }
+        body.style.backgroundColor = color;
+        colorelement.innerHTML = color;
+        }
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

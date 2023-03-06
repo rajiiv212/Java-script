@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="outputbox" placeholder="0" >
+        <input type="text" id="inputbox"  placeholder="0" >
+        <table>
+            <tr>
+                <th onclick="cal('(')">(</th>
+                <th onclick="cal(')')">)</th>
+                <th onclick="removech('')">&lt~</th>
+                <th class="var" onclick="cal('/')">/</th>
+            </tr>
+            <tr>
+                <th onclick="cal('7')">7</th>
+                <th onclick="cal('8')">8</th>
+                <th onclick="cal('9')">9</th>
+                <th class="var" onclick="cal('*')">*</th>
+            </tr>
+            <tr>
+                <th onclick="cal('4')">4</th>
+                <th onclick="cal('5')">5</th>
+                <th onclick="cal('6')">6</th>
+                <th class="var" onclick="cal('-')">-</th>
+            </tr>
+            <tr>
+                <th onclick="cal('1')">1</th>
+                <th onclick="cal('2')">2</th>
+                <th onclick="cal('3')">3</th>
+                <th class="var" onclick="cal('+')">+</th>
+            </tr>
+            <tr>
+                <th onclick="reset()">C</th>
+                <th onclick="cal('0')">0</th>
+                <th onclick="cal('.')">.</th>
+                <th class="equalbtn" onclick="execm()">=</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>

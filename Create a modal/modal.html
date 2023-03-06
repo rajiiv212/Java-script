@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creata A Modal</title>
+</head>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #modal-container{
+            width: 500px;
+            height: auto;
+            align-items: center;
+            position: relative;
+            left: 30%;
+            border: 1px solid #888;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) , 
+                        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 1s ;
+            animation-name: animatetop;
+            animation-duration: 1s;
+            display: none;
+        }
+        @-webkit-keyframes animatetop{
+            from {top :-300px; opacity: 0; }
+            to{ top: 0; opacity: 1;}
+        }
+        @keyframes  animatetop{
+            from {top :-300px; opacity: 0; }
+            to{ top: 0; opacity: 1;}
+        }
+        #modal-header{
+            background-color: #5cb85c;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 16px;
+            color: #fff;
+        }
+        
+        #modal-header .close{
+               font-size: x-large;
+               cursor: pointer;
+        }
+        
+        #modal-body p{
+            padding: 2px 16px;
+        }
+        #modal-footer{
+            background-color: #5cb85c;
+            padding: 2px 16px;
+            color: #fff;
+        }
+
+
+    </style>
+   
+<body>
+    <div class="container">
+        <h2>Modal Example</h2>
+        <button id="btn" >Open Modal</button>
+
+        <div id="modal-container">
+            <div id="modal-header">
+                <h2>Modal Heading</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+            </div>
+            <div id="modal-footer">
+                <h2>Modal footer</h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById("modal-container");
+        var openbtn = document.getElementById("btn");
+        var clo = document.getElementsByClassName("close")[0];
+
+        openbtn.onclick = function(){
+            modal.style.display = "block";
+        }
+
+        clo.onclick = function(){
+            modal.style.display = "none";
+        }
+
+    </script>
+
+    
+</body>
+</html>

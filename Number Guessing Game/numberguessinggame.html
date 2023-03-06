@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        *{
+            font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: #3B484A;
+        }
+        .container{
+            color: #F6DCFD;
+            width: 500px;
+            height: 350px;
+            border: 5px solid #F6DCFD;
+            background-color: #042367;
+            text-align: center;
+        }
+        #inputbox{
+            outline-style: none;
+            box-shadow: none;
+            height: 45px;
+            font-size: 20px;
+        }
+        button{
+            width: 85px;
+            height: 50px;
+            font-size: 20px;
+            color: black;
+        }
+       
+        label{
+            display: block;
+            padding: 25px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter the Number Between 1-100</h2>
+        <label>Guess The Number :</label>
+        <input type="text" id="inputbox">
+        <button type="submit" id="submit">Enter</button>
+        <p id="guess"></p>
+        <p id="result"></p>
+        <p id="loworhi"></p>
+    </div>
+    <script>
+        var randomNumber =  Math.floor(Math.random() * 100) +1;
+        var result = document.querySelector('#result');
+        var loworhi = document.querySelector('#loworhi'); 
+        var guess = document.querySelector('#guess');
+        var inputbox = document.querySelector('#inputbox');
+        var submit = document.querySelector('#submit');
+
+        var guesscount = 1 ;
+        var resetButton;
+        inputbox.focus();
+        function checkguess(){
+            var userguess = Number(inputbox.value);
+            if(guesscount == 1){
+                guess.textContent = 'Previous Guesses: ';
+            }
+            guess.textContent += userguess + ' ';
+            if(userguess == randomNumber){
+                result.textContent = 'Good job! You win!';
+                result.style.background = '#40CE39';
+                loworhi.textContent = '';
+                setgameover();
+            } else if(guesscount==10){
+                result.textContent = 'gameover';
+                loworhi.textContent = '';
+                setgameover();
+            } else {
+                result.textContent = 'Oops! You`s worng!'
+                result.style.background = '#FD3119';
+                if(userguess < randomNumber){
+                    loworhi.textContent = 'last guess was too low!';
+                }
+                if(userguess > randomNumber){
+                    loworhi.textContent = 'last guess was too high!';
+                }
+            }
+            guesscount++;
+            inputbox.value = '';
+            inputbox.focus();
+        }
+        submit.addEventListener('click',checkguess);
+        console.log('cheat is: ' + randomNumber);
+        function setgameover() {
+        inputbox.disabled = true;
+        submit.disabled = true;
+
+        resetButton = document.createElement('button'); 
+        resetButton.textContent = 'Play Again?';
+
+        loworhi.appendChild(resetButton);
+
+        resetButton.addEventListener("click", resetGame);
+
+        }
+
+        function resetGame() {
+
+        guesscount = 1;
+
+        var resetParas = document.querySelectorAll('.resultParas p');
+
+        for (var i = 0 ; i < resetParas.length ; i++){
+            resetParas[i].textContent = '';
+        }
+
+        resetButton.parentNode.removeChild(resetButton);
+        inputbox.disabled = false;
+        submit.disabled = false;
+        inputbox.value = "";
+        inputbox.focus();
+        guess.textContent = '';
+        result.textContent = '';
+        
+
+        result.style.backgroundColor = '#042367';
+        randomnumber = Math.floor(Math.random() * 100) +1;
+
+      
+        }
+        
+
+
+        
+
+        
+    </script>
+    
+</body>
+</html>

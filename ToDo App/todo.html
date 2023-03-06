@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            height: 97.5vh;
+            background-image: linear-gradient(45deg,#47BBB3,#169E8C);
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+        }
+        #container{
+            background-color: #fff;
+            width: 500px;
+            height: fit-content;
+            margin-top: 60px;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px 0 25px 0;
+        }
+        h1{
+            font-size: 40px;
+        }
+        #inputbox{
+            height: 30px;
+            width: 300px;
+            font-size: 18px;
+            outline: none;
+            padding-left: 10px;
+            border-radius: 5px ;
+        }   
+        #submit{
+            height: 36px;
+            width: 36px;
+            font-size: 18px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius:5px ;
+        }
+        
+        #submit:hover{
+           background-color: #555;
+        }
+        #submit:active{
+            background-color: #169E8C;
+        }
+        ul{
+            text-align: left;
+        }
+        li{
+            font-size: 16px;
+            padding: 10px 0 0 10px ;
+            list-style: none;
+            font-weight: 600;
+            height: 30px;
+            width: 390px;
+            border: 1px solid black; 
+            margin: 10px;
+            border-radius:16px ;
+        }
+        li button{
+            float: right;
+            height: 24px;
+            width: 45px;
+            font-size: 18px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius:50% ;
+        }
+        li button:active{
+            color: #169E8C;
+        }
+
+         </style>
+</head>
+<body>
+    <div id="container">
+       <h1>To Do List</h1>
+       <div id="box">
+           <input type="text" id="inputbox" placeholder="New Item...">
+           <button id="submit">+</button>
+       </div>
+       <div class="listitem">
+           <ul>
+            
+           </ul>
+       </div>
+    </div>
+    <script>
+        var input = document.querySelector("#inputbox");
+        var submit = document.querySelector("#submit");
+        var ul = document.querySelector("ul");
+        var item = document.getElementsByTagName("li");
+
+        function inputleangth(){
+            return input.value.length;
+        }
+
+        function listleangth(){
+            return item.length;
+        }
+        function createlistelement(){
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(input.value));
+            ul.appendChild(li);
+            input.value = "";
+        
+                function crossover(){
+                    li.classList.toggle("done");
+                }
+
+                li.addEventListener("click",crossover);
+
+                var button = document.createElement("button");
+                button.appendChild(document.createTextNode("x"));
+                li.appendChild(button);
+                button.addEventListener("click",deleteItem);
+
+
+                function deleteItem(){
+                   li.classList.style.display = "none";
+                } 
+        }
+
+        function addListAfterClick(){
+            if( inputleangth() > 0){
+                createlistelement();
+            }
+        }
+
+        function addListAfterKeypress(event){
+            if(inputleangth > 0 && event.which === 13){
+                createlistelement();
+            }
+        }
+
+        submit.addEventListener("click" ,addListAfterClick);
+         
+        input.addEventListener("keypress" ,addListAfterKeypress);
+        
+    </script>
+    
+</body>
+</html>

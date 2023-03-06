@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <link rel="stylesheet" href="bmi.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI</h1>
+        <form>
+            <div class="input-div"> 
+                <input type="range" min="20" max="100" id="wei" oninput="calculator()" value="20">
+                <span id="weight">20 kg</span>
+            </div> 
+            <div class="input-div"> 
+                <input type="range" min="100" max="200" id="hei" oninput="calculator()" value="100">
+                <span id="height">100 cm</span>
+            </div>
+            <p id="result">20</p>
+            
+                
+        </form>
+    </div>
+
+    <script src="bmi.js"></script>
+    
+</body>
+</html>

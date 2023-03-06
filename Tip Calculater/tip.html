@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body{
+            background-color:  #001f4f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 350px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            left: 38%;
+            top: 25%;
+            border-radius: 20px ;
+        }
+        .container h1{
+             position: absolute;
+             top: -15.5%;
+             left: 6%;
+             width: 300px;
+             text-align: center;
+             background-color: #ff851b;
+             color: #fff;
+             border-radius: 20px 20px 0 0 ;
+        }
+        form{
+            padding: 20px;
+        }
+        .container form p{
+           font-weight: 700;    margin: 10px 0;
+
+        }
+        .container form input,
+        .container form select{
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #0074d9 ;
+        }
+        .container form input:focus,
+        .container form select:focus{
+            outline: none;
+            border-bottom: 1px solid #0074d9 ;
+        }
+        select{
+            width: 87% !important;
+        }
+        button{
+            margin: 16px 80px;
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: #39cccc;
+            border: none;
+            border-radius : 10px ;
+            color: #fff;
+        }
+        #result{
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tip Calculator</h1>
+        <div id="calculator">
+      
+      
+          <form>
+            <p>How much was your bill?
+              <p>
+                <input id="amount" type="text" placeholder="Bill Amount">$
+      
+                <p>How was your service?
+                  <p>
+                    <select id="service">
+                  <option disabled selected value="0">-- Choose an Option --</option>
+                  <option value="0.3">30&#37; &#45; Outstanding</option>
+                  <option value="0.2">20&#37; &#45; Good</option>
+                  <option value="0.15">15&#37; &#45; It was OK</option>
+                  <option value="0.1">10&#37; &#45; Bad</option>
+                  <option value="0.05">5&#37; &#45; Terrible</option>
+              </select>
+      
+              <p>How many people are sharing the bill?</p>
+              <input id="person" type="text" placeholder="Number of People">
+              <button type="button" id="calculate">Calculate!</button>
+          </form>
+      
+        </div>
+        <!--calculator end-->
+        <div id="result">
+          <sup>$</sup><span id="tip">0.00</span>
+          <small id="each">each</small>
+        </div>
+     
+    <script>
+        
+
+        
+        function calculateTip()  {
+            let amount = document.getElementById("amount").value;
+            let service = document.getElementById("service").value;
+            let person = document.getElementById("person").value;
+           
+          
+            
+                if( amount  === "" || service == 0){
+                    alert("please enter the values");
+                    return;
+                }
+
+                if(person <= 1 || person === ""){
+                    person = 1; 
+                    document.getElementById("each").style.display = "none";
+                }else{
+                    document.getElementById("each").style.display = "block";
+                }
+            
+            
+                let total = (amount * service) / person;
+                total = Math.round(total * 100) / 100;
+                total = total.toFixed(2);
+                
+                document.getElementById("result").style.display = "block";
+                document.getElementById("tip").innerHTML = total;
+             
+                
+        }
+
+        
+        document.querySelector("#result").style.display = "none";
+
+        document.querySelector("#each").style.display = "none";
+
+        document.getElementById("calculate").onclick = function() {
+            calculateTip();
+        };
+        
+        
+       
+        
+    </script>
+    
+</body>
+</html>

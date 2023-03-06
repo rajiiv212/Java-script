@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="Image_Slider.css">
+</head>
+<body>
+    <div class="slide_container">
+
+        <div class="slide">
+            <img src="image/pexels-anand-dandekar-1532771.jpg" alt="" srcset="">
+            <div class="caption">Caption Text1</div>
+        </div>
+
+        <div class="slide">
+            <img src="image/pexels-david-besh-884788.jpg" alt="" srcset="">
+            <div class="caption">Caption Text2</div>
+        </div> 
+        
+        <div class="slide">
+            <img src="image/pexels-pixabay-46253.jpg" alt="" srcset="">
+            <div class="caption">Caption Text3</div>
+        </div>
+        
+        <div class="slide">
+            <img src="image/pexels-stein-egil-liland-1933239.jpg" alt="" srcset="">
+            <div class="caption">Caption Text4</div>
+        </div> 
+
+        <span class="arrow prev" onclick="controller(-1)">&#10094;</span>
+        <span class="arrow next" onclick="controller(+1)">&#10095;</span>
+    </div>
+    <script src="Image_Slider.js"></script>
+    
+</body>
+</html>
